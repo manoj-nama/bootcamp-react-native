@@ -1,0 +1,66 @@
+[
+	{
+		"title": "Introduction to JavaScript", 
+		"desc": "Getting started with Javascript"
+	},
+	{
+		"title": "Functional JavaScript", 
+		"desc": "Reusable and conceptual look at one pillar of Javascript"
+	},
+	{
+		"title": "Angular JS", 
+		"desc": "Most popular Front-end MVC framework"
+	},
+	{
+		"title": "Introduction to NodeJS", 
+		"desc": "Javascript on the Server"
+	},
+	{
+		"title": "Getting started with MonogoDB", 
+		"desc": "Highly performant NoSQL database"
+	},
+	{
+		"title": "Express with NodeJS", 
+		"desc": "Lightweight and Extensible framework for our webservers"
+	},
+	{
+		"title": "AngularJS: Advanced Concepts", 
+		"desc": "A look at deeper concepts and constructs"
+	},
+	{
+		"title": "Testing the Front-end apps", 
+		"desc": "Mocha, chai, and other beverages"
+	},
+	{
+		"title": "Introduction to JavaScript", 
+		"desc": "Getting started with Javascript"
+	},
+	{
+		"title": "Functional JavaScript", 
+		"desc": "Reusable and conceptual look at one pillar of Javascript"
+	},
+	{
+		"title": "Angular JS", 
+		"desc": "Most popular Front-end MVC framework"
+	},
+	{
+		"title": "Introduction to NodeJS", 
+		"desc": "Javascript on the Server"
+	},
+	{
+		"title": "Getting started with MonogoDB", 
+		"desc": "Highly performant NoSQL database"
+	},
+	{
+		"title": "Express with NodeJS", 
+		"desc": "Lightweight and Extensible framework for our webservers"
+	},
+	{
+		"title": "AngularJS: Advanced Concepts", 
+		"desc": "A look at deeper concepts and constructs"
+	},
+	{
+		"title": "Testing the Front-end apps", 
+		"desc": "Mocha, chai, and other beverages"
+	}
+]
