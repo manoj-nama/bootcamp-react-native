@@ -6,6 +6,7 @@ import React, {
 	StyleSheet,
 	Text,
 	TouchableHighlight,
+	TouchableOpacity,
 	ActivityIndicatorIOS,
 	ListView,
 } from 'react-native';
@@ -47,16 +48,19 @@ export default class DashboardPage extends Component {
 	_renderRow(rowData) {
 		var dt = new Date(rowData.scheduleTime).toDateString();
 		return (
-			<TouchableHighlight style={styles.listItem} 
-				underlayColor="rgba(255, 200, 0, 0.5)"
+			<TouchableOpacity style={styles.listItem} 
 				key={rowData._id}
 				onPress={() => this.goToDetailPage(rowData)}>
 				<View>
-					<Text style={styles.title}>{rowData.title}</Text>
-					<Text style={styles.desc}>{rowData.description}</Text>
-					<Text>{dt}</Text>
+					<View style={styles.info}>
+						<Text style={styles.title}>{rowData.title}</Text>
+						<Text style={styles.desc}>{rowData.description}</Text>
+					</View>
+					<View style={styles.time}>
+						<Text>{dt}</Text>
+					</View>
 				</View>
-			</TouchableHighlight>
+			</TouchableOpacity>
 		);
 	}
 
@@ -84,7 +88,7 @@ export default class DashboardPage extends Component {
 const styles = StyleSheet.create({
 	nav: {
 		flex: 1,
-		backgroundColor: "#fff",
+		backgroundColor: "#eee",
 	},
 	list: {
 		paddingTop: 65,
@@ -94,15 +98,14 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 	listItem: {
-		padding: 10,
 		marginTop: 10,
 		marginHorizontal: 10,
-		shadowOffset: {width: 0, height: 2},
-		shadowOpacity: 0.15,
-		shadowRadius: 2,
-		borderRadius: 0,
+		// shadowOffset: {width: 0, height: 2},
+		// shadowOpacity: 0.15,
+		// shadowRadius: 2,
+		borderRadius: 5,
 		alignSelf: "stretch",
-		backgroundColor: "#fff",
+		// backgroundColor: "#fff",
 	},
 	loader: {
 		position: "absolute",
@@ -121,7 +124,21 @@ const styles = StyleSheet.create({
 	desc: {
 		color: "#555",
 		paddingVertical: 3,
+		fontWeight: "200",
 		fontSize: 13,
 		fontStyle: "italic",
-	}
+	},
+	info: {
+		padding: 10,
+		backgroundColor: "#fff",
+		borderTopLeftRadius: 4,
+		borderTopRightRadius: 4,
+	},
+	time: {
+		backgroundColor: "#d5d5d5",
+		paddingVertical: 5,
+		paddingHorizontal: 10,
+		borderBottomLeftRadius: 4,
+		borderBottomRightRadius: 4,
+	},
 });

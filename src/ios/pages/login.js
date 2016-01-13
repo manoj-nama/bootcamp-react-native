@@ -30,7 +30,7 @@ export default class LoginPage extends Component {
 					name: "Sessions",
 					component: DashboardPage,
 				});
-			}, 500);
+			}, 10);
 		}
 	}
 
