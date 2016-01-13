@@ -23,9 +23,10 @@ export default class BootcampApp extends Component {
 				const previousRoute = navState.routeStack[index - 1]
 				return (
 					<TouchableOpacity
+						style={styles.backBtn}
 						onPress={() => navigator.pop()}>
 						<Text style={styles.navText}>
-						  {previousRoute.name}
+						  &lt; Back
 						</Text>
 					</TouchableOpacity>
 				)
@@ -37,7 +38,7 @@ export default class BootcampApp extends Component {
 			},
 			Title: (route, navigator, index, navState) => {
 				return (
-					<Text style={styles.navText}>{route.name}</Text>
+					<Text style={styles.navTitle}>{route.name}</Text>
 				)
 			}
 		};
@@ -70,10 +71,16 @@ const styles = StyleSheet.create({
 	},
 	navText: {
 		fontSize: 16,
+		marginVertical: 10,
+		paddingHorizontal: 10,
+	},
+	navTitle: {
+		fontWeight: "bold",
+		fontSize: 16,
 		marginTop: 10,
 		paddingHorizontal: 10,
 	},
 	navBar: {
 		backgroundColor: "#fc0",
-	}
+	},
 });
