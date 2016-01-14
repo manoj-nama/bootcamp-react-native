@@ -13,7 +13,8 @@ import React, {
 
 import DashboardPage from "./dashboard";
 
-var enums = require("../../common/enums");
+var enums = require("../../common/enums"),
+	icons = require("../../common/icons");
 
 export default class NavigationPage extends Component {
 	constructor(props) {
@@ -53,10 +54,12 @@ export default class NavigationPage extends Component {
 		};
 		
 		return (
-			<TabBarIOS>
+			<TabBarIOS tintColor="#fc0">
 
 				<TabBarIOS.Item
-					systemIcon="history"
+					title="Upcoming"
+					icon={{uri: icons.upcoming.idle, scale: 3}}
+					selectedIcon={{uri: icons.upcoming.active, scale: 3}}
 					selected={this.state.selectedTab === enums.Tabs.UPCOMING}
 					onPress={() => {
 						this.setState({
@@ -82,20 +85,9 @@ export default class NavigationPage extends Component {
 				</TabBarIOS.Item>
 
 				<TabBarIOS.Item
-					systemIcon="contacts"
-					selected={this.state.selectedTab === enums.Tabs.PROFILE}
-					onPress={() => {
-						this.setState({
-							selectedTab: enums.Tabs.PROFILE,
-						});
-					}}>
-					<View style={styles.tab}>
-						<Text style={styles.centering}>This is PROFILE tab</Text>
-					</View>
-				</TabBarIOS.Item>
-
-				<TabBarIOS.Item
-					systemIcon="downloads"
+					title="Bootcamp"
+					icon={{uri: icons.bootcamp.idle, scale: 3}}
+					selectedIcon={{uri: icons.bootcamp.active, scale: 3}}
 					selected={this.state.selectedTab === enums.Tabs.BOOTCAMP}
 					onPress={() => {
 						this.setState({
@@ -104,6 +96,36 @@ export default class NavigationPage extends Component {
 					}}>
 					<View style={styles.tab}>
 						<Text style={styles.centering}>This is Bootcamp tab</Text>
+					</View>
+				</TabBarIOS.Item>
+
+				<TabBarIOS.Item
+					title="Topics"
+					icon={{uri: icons.category.idle, scale: 3}}
+					selectedIcon={{uri: icons.category.active, scale: 3}}
+					selected={this.state.selectedTab === enums.Tabs.CATEGORY}
+					onPress={() => {
+						this.setState({
+							selectedTab: enums.Tabs.CATEGORY,
+						});
+					}}>
+					<View style={styles.tab}>
+						<Text style={styles.centering}>This is Topics tab</Text>
+					</View>
+				</TabBarIOS.Item>
+
+				<TabBarIOS.Item
+					title="Profile"
+					icon={{uri: icons.profile.idle, scale: 3}}
+					selectedIcon={{uri: icons.profile.active, scale: 3}}
+					selected={this.state.selectedTab === enums.Tabs.PROFILE}
+					onPress={() => {
+						this.setState({
+							selectedTab: enums.Tabs.PROFILE,
+						});
+					}}>
+					<View style={styles.tab}>
+						<Text style={styles.centering}>This is Profile tab</Text>
 					</View>
 				</TabBarIOS.Item>
 
