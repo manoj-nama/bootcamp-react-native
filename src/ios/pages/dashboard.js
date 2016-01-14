@@ -77,7 +77,7 @@ export default class DashboardPage extends Component {
 			   {
 			   	this.state.loadingData ?
 			   	<View style={styles.loader}>
-		    			<ActivityIndicatorIOS style={[styles.centering, {height: 50}]} />
+		    			<ActivityIndicatorIOS color="#fc0" size="large" style={styles.centering} />
 		    		</View> : null
 		    	}
 			</View>
@@ -99,13 +99,10 @@ const styles = StyleSheet.create({
 	},
 	listItem: {
 		marginTop: 10,
+		marginBottom: 5,
 		marginHorizontal: 10,
-		// shadowOffset: {width: 0, height: 2},
-		// shadowOpacity: 0.15,
-		// shadowRadius: 2,
 		borderRadius: 5,
 		alignSelf: "stretch",
-		// backgroundColor: "#fff",
 	},
 	loader: {
 		position: "absolute",
@@ -116,10 +113,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
-		backgroundColor: "rgba(255, 255, 255, 0.2)",
+		backgroundColor: "rgba(255, 255, 255, 0.5)",
 	},
 	title: {
-		fontSize: 16,
+		fontWeight: "200",
+		fontSize: 18,
 	},
 	desc: {
 		color: "#555",
