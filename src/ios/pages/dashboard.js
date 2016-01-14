@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "#eee",
 	},
 	list: {
-		paddingTop: 65,
+		paddingTop: 45,
 	},
 	container: {
 		alignItems: "center",

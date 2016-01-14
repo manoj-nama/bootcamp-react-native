@@ -10,7 +10,7 @@ import React, {
 	View,
 } from 'react-native';
 
-import DashboardPage from './dashboard';
+import NavigationPage from './nav';
 
 export default class LoginPage extends Component {
 
@@ -28,7 +28,7 @@ export default class LoginPage extends Component {
 				this.setState({isBusy: false});
 				this.props.navigator.replace({
 					name: "Sessions",
-					component: DashboardPage,
+					component: NavigationPage,
 				});
 			}, 10);
 		}
