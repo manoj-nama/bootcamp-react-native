@@ -12,6 +12,8 @@ import React, {
 
 import NavigationPage from './nav';
 
+var enums = require("../../common/enums");
+
 export default class LoginPage extends Component {
 
 	constructor(props) {
@@ -27,7 +29,7 @@ export default class LoginPage extends Component {
 			setTimeout(() => {
 				this.setState({isBusy: false});
 				this.props.navigator.replace({
-					name: "Sessions",
+					name: enums.Tabs.UPCOMING,
 					component: NavigationPage,
 				});
 			}, 10);

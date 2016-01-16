@@ -2,9 +2,13 @@
 
 module.exports = {
     Tabs: {
-        UPCOMING: "UPCOMING",
-        BOOTCAMP: "BOOTCAMP",
-        CATEGORY: "CATEGORY",
-        PROFILE: "PROFILE"
+        UPCOMING: "Upcoming",
+        BOOTCAMP: "Bootcamp",
+        CATEGORY: "Category",
+        PROFILE: "Profile",
+        AGENDA: "Agenda",
+    },
+    Pages: {
+    	
     }
 };

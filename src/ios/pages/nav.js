@@ -57,7 +57,7 @@ export default class NavigationPage extends Component {
 			<TabBarIOS tintColor="#fc0">
 
 				<TabBarIOS.Item
-					title="Upcoming"
+					title={enums.Tabs.UPCOMING}
 					icon={{uri: icons.upcoming.idle, scale: 3}}
 					selectedIcon={{uri: icons.upcoming.active, scale: 3}}
 					selected={this.state.selectedTab === enums.Tabs.UPCOMING}
@@ -72,7 +72,7 @@ export default class NavigationPage extends Component {
 						navigationBar={
  						   <Navigator.NavigationBar style={styles.navBar} routeMapper={routeMapper} />
 						}
-						initialRoute={{name: 'Sessions', component: DashboardPage}}
+						initialRoute={{name: enums.Tabs.UPCOMING, component: DashboardPage}}
 						configureScene={() => {
 						  return Navigator.SceneConfigs.PushFromRight;
 						}}
@@ -85,7 +85,7 @@ export default class NavigationPage extends Component {
 				</TabBarIOS.Item>
 
 				<TabBarIOS.Item
-					title="Bootcamp"
+					title={enums.Tabs.BOOTCAMP}
 					icon={{uri: icons.bootcamp.idle, scale: 3}}
 					selectedIcon={{uri: icons.bootcamp.active, scale: 3}}
 					selected={this.state.selectedTab === enums.Tabs.BOOTCAMP}
@@ -100,7 +100,7 @@ export default class NavigationPage extends Component {
 				</TabBarIOS.Item>
 
 				<TabBarIOS.Item
-					title="Topics"
+					title={enums.Tabs.CATEGORY}
 					icon={{uri: icons.category.idle, scale: 3}}
 					selectedIcon={{uri: icons.category.active, scale: 3}}
 					selected={this.state.selectedTab === enums.Tabs.CATEGORY}
@@ -115,7 +115,7 @@ export default class NavigationPage extends Component {
 				</TabBarIOS.Item>
 
 				<TabBarIOS.Item
-					title="Profile"
+					title={enums.Tabs.PROFILE}
 					icon={{uri: icons.profile.idle, scale: 3}}
 					selectedIcon={{uri: icons.profile.active, scale: 3}}
 					selected={this.state.selectedTab === enums.Tabs.PROFILE}

@@ -10,7 +10,10 @@ import React, {
 	ActivityIndicatorIOS,
 	ListView,
 } from 'react-native';
+
 import DetailPage from "./detail";
+
+var enums = require("../../common/enums");
 
 export default class DashboardPage extends Component {
 
@@ -39,7 +42,7 @@ export default class DashboardPage extends Component {
 
 	goToDetailPage(data) {
 		this.props.navigator.push({ 
-			name: "Agenda",
+			name: enums.Tabs.AGENDA,
 			component: DetailPage,
 			params: data,
 		});
