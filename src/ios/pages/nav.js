@@ -12,6 +12,7 @@ import React, {
 } from 'react-native';
 
 import DashboardPage from "./dashboard";
+import ProfilePgae from "./profile";
 
 var enums = require("../../common/enums"),
 	icons = require("../../common/icons");
@@ -124,9 +125,20 @@ export default class NavigationPage extends Component {
 							selectedTab: enums.Tabs.PROFILE,
 						});
 					}}>
-					<View style={styles.tab}>
-						<Text style={styles.centering}>This is Profile tab</Text>
-					</View>
+					<Navigator
+						automaticallyAdjustsScrollViewInsets={true}
+						navigationBar={
+ 						   <Navigator.NavigationBar style={styles.navBar} routeMapper={routeMapper} />
+						}
+						initialRoute={{name: enums.Tabs.PROFILE, component: ProfilePgae}}
+						configureScene={() => {
+						  return Navigator.SceneConfigs.PushFromRight;
+						}}
+						renderScene={(route, navigator) => {
+							if (route.component) {
+						   	return React.createElement(route.component, { navigator, route });
+						  	}
+					}} />
 				</TabBarIOS.Item>
 
 			</TabBarIOS>
