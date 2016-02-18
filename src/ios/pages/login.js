@@ -39,29 +39,35 @@ export default class LoginPage extends Component {
 	render() {
 		return (
 			<View style={styles.nav}>
-				<TextInput
-					keyboardType="email-address"
-					autoCorrect={false}
-					style={styles.txt}
-					autoCapitalize="none"
-					placeholder="Email" />
 
-				<TextInput 
-					style={styles.txt}
-					secureTextEntry={true}
-					placeholder="Password" />
+				<View style={styles.headingWrap}>
+					<Text style={styles.heading}>Bootcamp</Text>
+				</View>
+				<View style={styles.form}>
+					<TextInput
+						keyboardType="email-address"
+						autoCorrect={false}
+						style={styles.txt}
+						autoCapitalize="none"
+						placeholder="Email" />
 
-				<TouchableOpacity style={styles.loginBtn}
-					activeOpacity={0.3}
-					onPress={this.doLogin.bind(this)}>
-					<View>
-						{
-							this.state.isBusy ? 
-							<ActivityIndicatorIOS style={[styles.centering, {height: 20}]} /> :
-							<Text style={styles.btnTxt}>Login</Text>
-						}					
-					</View>
-				</TouchableOpacity>
+					<TextInput 
+						style={styles.txt}
+						secureTextEntry={true}
+						placeholder="Password" />
+
+					<TouchableOpacity style={styles.loginBtn}
+						activeOpacity={0.3}
+						onPress={this.doLogin.bind(this)}>
+						<View>
+							{
+								this.state.isBusy ? 
+								<ActivityIndicatorIOS style={[styles.centering, {height: 20}]} /> :
+								<Text style={styles.btnTxt}>Login</Text>
+							}					
+						</View>
+					</TouchableOpacity>
+				</View>
 			</View>
 		);
 	}
@@ -70,7 +76,6 @@ export default class LoginPage extends Component {
 const styles = StyleSheet.create({
 	nav: {
 		flexDirection: 'column',
-		paddingTop: 100,
 		flex: 1,
 	},
 	copy: {
@@ -79,6 +84,20 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		paddingHorizontal: 20,
 		flex: 1,
+	},
+	heading: {
+		fontSize: 42,
+		textAlign: "center",
+		color: "#000",
+		fontWeight: "100",
+		paddingVertical: 20,
+	},
+	headingWrap: {
+		paddingTop: 50,
+		backgroundColor: "#fc0",
+	},
+	form: {
+		paddingTop: 20,
 	},
 	txt: {
 		height: 40,

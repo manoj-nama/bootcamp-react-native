@@ -2,6 +2,7 @@
 
 import React, {
 	Component,
+	AsyncStorage,
 	View,
 	StyleSheet,
 	Text,
@@ -27,17 +28,36 @@ export default class DashboardPage extends Component {
 	}
 
 	componentWillMount() {
-		fetch("http://api.manojnama.com/v1/api/sessions")
-			.then((response) => response.json())
-			.then((data) => {
-				this.setState({
-					dataSource: this.state.dataSource.cloneWithRows(data.sessions),
+		var _data,
+			self = this;
+		AsyncStorage.getItem("upcoming-list", function(err, data) {
+			if(err) {
+				console.log("Error fetching data from Storage", err);
+			} else if(data) {
+				console.log("Storage Cache hit", data);
+				_data = JSON.parse(data);
+				self.setState({
+					dataSource: self.state.dataSource.cloneWithRows(_data),
 					loadingData: false,
 				});
-			})
-			.catch(function (err) {
-				console.log(err);
-			});
+			} else {
+				console.log("Storage empty, firing up XHR");
+				fetch("http://api.manojnama.com/v1/api/sessions")
+					.then((response) => response.json())
+					.then((data) => {
+						AsyncStorage.setItem("upcoming-list", JSON.stringify(data.sessions), function () {
+							console.log("setting data", arguments);
+						});
+						self.setState({
+							dataSource: self.state.dataSource.cloneWithRows(data.sessions),
+							loadingData: false,
+						});
+					})
+					.catch(function (err) {
+						console.log(err);
+					});
+			}
+		});
 	}
 
 	goToDetailPage(data) {

@@ -12,12 +12,13 @@ import React, {
 } from 'react-native';
 
 import DashboardPage from "./dashboard";
-import ProfilePgae from "./profile";
+import ProfilePage from "./profile";
 
 var enums = require("../../common/enums"),
 	icons = require("../../common/icons");
 
 export default class NavigationPage extends Component {
+	
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -25,7 +26,7 @@ export default class NavigationPage extends Component {
 		};
 	}
 
-	render() {
+	getNavigator(defaultRoute) {
 		const routeMapper = {
 			LeftButton: (route, navigator, index, navState) => {
 				if (index === 0) {
@@ -53,7 +54,26 @@ export default class NavigationPage extends Component {
 				);
 			}
 		};
-		
+
+		return (
+			<Navigator
+				automaticallyAdjustsScrollViewInsets={true}
+				navigationBar={
+					   <Navigator.NavigationBar style={styles.navBar} routeMapper={routeMapper} />
+				}
+				initialRoute={defaultRoute}
+				configureScene={() => {
+				  return Navigator.SceneConfigs.PushFromRight;
+				}}
+				renderScene={(route, navigator) => {
+					if (route.component) {
+				   	return React.createElement(route.component, { navigator, route });
+				  	}
+			}} />
+		);
+	}
+
+	render() {
 		return (
 			<TabBarIOS tintColor="#fc0">
 
@@ -67,22 +87,7 @@ export default class NavigationPage extends Component {
 							selectedTab: enums.Tabs.UPCOMING,
 						});
 					}}>
-
-					<Navigator
-						automaticallyAdjustsScrollViewInsets={true}
-						navigationBar={
- 						   <Navigator.NavigationBar style={styles.navBar} routeMapper={routeMapper} />
-						}
-						initialRoute={{name: enums.Tabs.UPCOMING, component: DashboardPage}}
-						configureScene={() => {
-						  return Navigator.SceneConfigs.PushFromRight;
-						}}
-						renderScene={(route, navigator) => {
-							if (route.component) {
-						   	return React.createElement(route.component, { navigator, route });
-						  	}
-					}} />
-
+					{this.getNavigator({name: enums.Tabs.UPCOMING, component: DashboardPage})}
 				</TabBarIOS.Item>
 
 				<TabBarIOS.Item
@@ -125,20 +130,7 @@ export default class NavigationPage extends Component {
 							selectedTab: enums.Tabs.PROFILE,
 						});
 					}}>
-					<Navigator
-						automaticallyAdjustsScrollViewInsets={true}
-						navigationBar={
- 						   <Navigator.NavigationBar style={styles.navBar} routeMapper={routeMapper} />
-						}
-						initialRoute={{name: enums.Tabs.PROFILE, component: ProfilePgae}}
-						configureScene={() => {
-						  return Navigator.SceneConfigs.PushFromRight;
-						}}
-						renderScene={(route, navigator) => {
-							if (route.component) {
-						   	return React.createElement(route.component, { navigator, route });
-						  	}
-					}} />
+					{this.getNavigator({name: enums.Tabs.PROFILE, component: ProfilePage})}
 				</TabBarIOS.Item>
 
 			</TabBarIOS>
