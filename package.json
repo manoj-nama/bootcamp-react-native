@@ -6,7 +6,6 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "react-native": "^0.18.0-rc",
-    "react-native-side-menu": "^0.18.0"
+    "react-native": "^0.20.0"
   }
 }
